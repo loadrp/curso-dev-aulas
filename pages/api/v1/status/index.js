@@ -1,5 +1,10 @@
-function status(request, response) {
-  return response.status(200).json({"chave": "curso.dev é bom demais"})
+import database from "../../../../infra/database";
+
+async function status(request, response) {
+  const result = await database.query("SELECT 1 + 1 as sum;")
+  console.log(result.rows)
+  response.status(200).json({'curso':'bom demais'})
+  
 }
 
-export default status
+export default status;
