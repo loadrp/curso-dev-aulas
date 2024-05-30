@@ -11,8 +11,8 @@
     "services:restart": "docker compose -f ./infra/compose.yaml restart && next dev",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate -m infra/migrations create",
     "migration:up": "node-pg-migrate --envPath .env.development -m infra/migrations up ",
     "migration:down": "node-pg-migrate -m infra/migrations down"
