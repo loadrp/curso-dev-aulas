@@ -1,19 +1,16 @@
-const { exec } = require('node:child_process')
-
+const { exec } = require("node:child_process");
 
 function checkPostgres() {
-  exec('docker exec postgres-dev pg_isready --host localhost', handleReturn)
-
- }
- function handleReturn(error, stdout, stderr) {
-  if(stdout.search("accepting connections")=== -1){
-    process.stdout.write('.')
-    checkPostgres()
-    return
+  exec("docker exec postgres-dev pg_isready --host localhost", handleReturn);
+}
+function handleReturn(error, stdout, stderr) {
+  if (stdout.search("accepting connections") === -1) {
+    process.stdout.write(".");
+    checkPostgres();
+    return;
   }
-  console.log("\n\n🟢 Postgres is ready!\n")
- }
- 
+  console.log("\n\n🟢 Postgres is ready!\n");
+}
 
- checkPostgres()
- process.stdout.write("\n\n🔴 Waiting for Postgres to be ready...");
+checkPostgres();
+process.stdout.write("\n\n🔴 Waiting for Postgres to be ready...");
