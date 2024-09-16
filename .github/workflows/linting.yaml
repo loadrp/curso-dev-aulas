@@ -14,7 +14,7 @@ jobs:
       - run: npm ci
       - run: npm run
     
-    eslint:
+  eslint:
     name: ESlint
     runs-on: ubuntu-latest
     steps:
