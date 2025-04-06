@@ -13,7 +13,7 @@ jobs:
 
       - run: npm ci
       - run: npm run
-    
+
   eslint:
     name: ESlint
     runs-on: ubuntu-latest
